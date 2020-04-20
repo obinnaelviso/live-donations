@@ -2046,7 +2046,6 @@ p.grid1 {
 .blankpage-main {
     padding: 2em 2em;
     background: #fff;
-    margin-top:4em;
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
 }
 .blankpage-main p {
@@ -4713,4 +4712,17 @@ ul.dropdown-menu {
 .b_tooltip {
     padding: 4px 7px 7px 7px;
 }
+
+.campaign_description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+}
+.fnt-sz12 {
+    font-size: 12px;
+}
+.modal-header {
+    color: white;
+    background-color: darkblue;
 }

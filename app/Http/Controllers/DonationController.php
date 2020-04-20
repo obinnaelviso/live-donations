@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\Donation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DonationController extends Controller
 {
@@ -12,9 +14,17 @@ class DonationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
+    }
+
+    public function index(Request $request)
+    {
+        $campaigns = Campaign::latest()->get();
+        $donations = Donation::latest()->get();
+        $query = $request->campaign;
+        return view('admin.donations', compact('campaigns', 'donations', 'query'));
     }
 
     /**
@@ -35,7 +45,9 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validator($request->all())->validate();
+        Donation::create($request->all());
+        return response('New Donation created successfully!', 200);
     }
 
     /**
@@ -80,6 +92,18 @@ class DonationController extends Controller
      */
     public function destroy(Donation $donation)
     {
-        //
+        $donation->delete();
+        return response('Donation deleted successfully!', 200);
+    }
+
+    protected function validator(array $data)
+    {
+    	return Validator::make($data, [
+    		'firstname' => 'required',
+    		'lastname' => 'required',
+            'email' => 'required|email',
+            'amount' => 'required|numeric|min:0',
+            'campaign_id' => 'required',
+        ], ['campaign_id.required' => 'A campaign needs to be selected.']);
     }
 }

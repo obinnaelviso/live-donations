@@ -20,7 +20,7 @@ class CreateCampaignsTable extends Migration
             $table->string("title");
             $table->longText("description");
             $table->unsignedBigInteger("target");
-            $table->boolean("is_featured")->nullable();
+            $table->boolean("is_featured")->nullable()->default(0);
             $table->string("status")->default("open");
             $table->timestamp("expire_at");
             $table->timestamps();
