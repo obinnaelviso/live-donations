@@ -58,14 +58,14 @@
                 <img src="img/icons/home2.png" alt="">
                 <h4>Fund Raised</h4>
                 <div class="bigValues text-center">
-                    $<span id="fund-raised">{{ $donations->sum('amount') }}</span>
+                    $<span id="funds-raised">{{ $donations->sum('amount') }}</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 single_donation_box">
                 <img src="img/icons/home3.png" alt="">
                 <h4>Highest Donation</h4>
                 <div class="bigValues text-center">
-                    $<span id="highest-donation">{{ $donations->first()->amount }}</span>
+                    $<span id="highest-donations">{{ $donations->first()->amount }}</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 single_donation_box">
@@ -210,30 +210,40 @@
 @endsection
 
 @section('moreJS')
-<script>
-$('#total-donations').animationCounter({
-    start: 0,
-    delay: 200,
-    step: 1,
-    end: $('#total-donations').html(),
-});
-$('#fund-raised').animationCounter({
-    start: 0,
-    delay: 1,
-    step: 11,
-    end: $('#fund-raised').html(),
-});
-$('#highest-donation').animationCounter({
-    start: 0,
-    delay: 2,
-    step: 11,
-    end: $('#highest-donation').html(),
-});
-$('#total-campaigns').animationCounter({
-    start: 0,
-    delay: 500,
-    step: 1,
-    end: $('#total-campaigns').html(),
-});
+<script type="module">
+    import { CountUp } from  "/vendors/countUp/countUp.min.js";
+    var totalDonations = $('#total-donations').html()
+    var fundRaised = $('#funds-raised').html()
+    var highestDonation = $('#highest-donations').html()
+    var completedCampaigns = $('#completed-campaigns').html()
+
+// Total Donations
+let td_count = new CountUp('total-donations', totalDonations, {duration: 10});
+if (!td_count.error) {
+  td_count.start();
+} else {
+  console.error(td_count.error);
+}
+// Funds Raised
+let fr_count = new CountUp('funds-raised', fundRaised, {duration: 7});
+if (!fr_count.error) {
+  fr_count.start();
+} else {
+  console.error(fr_count.error);
+}
+// Highest Donation
+let hd_count = new CountUp('highest-donations', highestDonation, {duration: 5});
+if (!hd_count.error) {
+  hd_count.start();
+} else {
+  console.error(hd_count.error);
+}
+// Completed Campaigns
+let cc_count = new CountUp('completed-campaigns', completedCampaigns, {duration: 10});
+if (!cc_count.error) {
+  cc_count.start();
+} else {
+  console.error(cc_count.error);
+}
 </script>
 @endsection
