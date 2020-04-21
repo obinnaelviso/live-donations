@@ -8,7 +8,7 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Make a donation</h2>
+                <h2>Make a donation - Save Many Lives</h2>
             </div>
         </div>
     </div>

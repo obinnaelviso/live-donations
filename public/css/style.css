@@ -635,7 +635,7 @@ a {
     overflow: hidden;
     width: 100%;
     min-height: 445px;
-    background: url(../img/image1.jpg) no-repeat center bottom;
+    background: url(../img/image1.jpg) no-repeat center;
     background-size: cover;
     z-index: 1; }
     .banner_area .banner_inner .overlay {
