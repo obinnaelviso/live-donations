@@ -33,7 +33,7 @@
                         behavior is often laughed.</p>
                     <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
                         in the workplace.</p>
-                    <a href="{{ route('index') }}" class="main_btn">Donate Now</a>
+                    <a href="{{ route('donate') }}" class="main_btn">Donate Now</a>
                 </div>
             </div>
         </div>

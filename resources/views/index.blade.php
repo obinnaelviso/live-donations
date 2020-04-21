@@ -10,8 +10,8 @@
                 <img class="img-fluid" src="img/banner/text-img.png" alt="">
                 <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
                     for as low as each.</p>
-                <a class="main_btn mr-10" href="#">donate now</a>
-                    <a class="white_bg_btn" href="#">view activity</a>
+                <a class="main_btn mr-10" href="{{ route('donate') }}">donate now</a>
+                    <a class="white_bg_btn" href="{{ route('donate') }}">view activity</a>
             </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
                                 <h4 class="card-title">{!! $campaign->title !!}</h4>
                                 <p class="card-text">{!! substr($campaign->description, 0, 200) !!}
                                 </p>
-                                <a href="#" class="main_btn2">donate here</a>
+                                <a href="{{ route('make-donation', $campaign->id) }}" class="main_btn2">donate here</a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                                 $percentage = (int)(($campaign->donations->sum('amount')/$campaign->target) * 100);
                             @endphp
                             <div>
-                                <h4><a class="donate" href="#">{{ $campaign->title }}</a></h4>
+                                <h4><a class="donate" href="{{ route('make-donation', $campaign->id) }}">{{ $campaign->title }}</a></h4>
                                 <h4>${{ $campaign->target }}</h4>
                             </div>
                         </div>
@@ -200,8 +200,8 @@
                 <h1>Experience How your Donation Can Reach</h1>
                 <p>he French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence, and upturning
                     of the natural chain of events that resounded.</p>
-                <a href="#" class="main_btn2 mr-10">make donation now</a>
-                <a href="#" class="main_btn2">Create Fundraising today</a>
+                <a href="{{ route('donate') }}" class="main_btn2 mr-10">make donation now</a>
+                {{-- <a href="#" class="main_btn2">Create Fundraising today</a> --}}
             </div>
         </div>
     </div>
