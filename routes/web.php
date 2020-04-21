@@ -20,7 +20,7 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/make-donations/{campaign}', 'HomeController@makeDonation')->name('make-donation');
 Route::post('/make-donations/{campaign}', 'HomeController@processDonation')->name('process-donation');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'DashboardController@index')->name('home');
 

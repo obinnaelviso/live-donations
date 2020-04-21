@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="login-page">
     <div class="login-main">
     	 <div class="login-head">
-				<h1>Life Saving Foundation Admin</h1>
+				<h1>Life Saving Foundation</h1>
 			</div>
 			<div class="login-block">
                 <div></div>
@@ -52,15 +52,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</li>
 							</ul>
                         </div>
-                        @if (Route::has('password.request'))
+                        {{-- @if (Route::has('password.request'))
                             <div class="forgot">
                                 <a class="btn btn-link" href="{{ route('password.request') }}">Forgot password?</a>
                             </div>
-                        @endif
+                        @endif --}}
 						<div class="clearfix"> </div>
 					</div>
 					<input type="submit" name="Sign In" value="Login">
-					<h3>Not a member?<a href="{{ route("register") }}">Register</a></h3>
+					{{-- <h3>Not a member?<a href="{{ route("register") }}">Register</a></h3> --}}
 				</form>
 			</div>
       </div>
