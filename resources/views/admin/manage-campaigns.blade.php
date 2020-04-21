@@ -32,7 +32,7 @@
                         @foreach($campaigns as $campaign)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td><img src="/storage/{{ $campaign->featured_image }}" class="img-responsive" style="width: 100px"  alt="{{ $campaign->title }}"></td>
+                                <td><img src="{{ url('/storage/'.$campaign->featured_image) }}" class="img-responsive" style="width: 100px"  alt="{{ $campaign->title }}"></td>
                                 <td>{{ $campaign->title }}</td>
                                 {{-- <td class="fnt-sz12">{!! substr($campaign->description, 0, 100) !!}...</td> --}}
                                 <td><a class="btn btn-primary" href="{{ route('donations.index', ["campaign" => $campaign->title]) }}">{{ count($campaign->donations) }}</a></td>
