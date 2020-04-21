@@ -13,5 +13,5 @@
 <!-- <script src="vendors/counter-up/jquery.counterup.js"></script> -->
 <script src="/js/mail-script.js"></script>
 <script src="/js/custom.js"></script>
-<script type="module" src="./vendors/countUp/countUp.min.js"></script>
+<script type="module" src="/vendors/countUp/countUp.min.js"></script>
 @yield('moreJS')
