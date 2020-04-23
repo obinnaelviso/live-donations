@@ -59,11 +59,21 @@ class HomeController extends Controller
 
     public function donate() {
         $campaigns = Campaign::where('status', 'open')->latest()->get();
-        return view('donate', compact('campaigns'));
+        $about_settings = Setting::where('key', 'about')->first();
+        if($about_settings)
+            $about = json_decode($about_settings->value, true);
+        else
+            $about = [];
+        return view('donate', compact('campaigns', 'about'));
     }
 
     public function makeDonation(Campaign $campaign) {
-        return view('make-donation', compact('campaign'));
+        $about_settings = Setting::where('key', 'about')->first();
+        if($about_settings)
+            $about = json_decode($about_settings->value, true);
+        else
+            $about = [];
+        return view('make-donation', compact('campaign', 'about'));
     }
 
     public function processDonation(Campaign $campaign, Request $request)
