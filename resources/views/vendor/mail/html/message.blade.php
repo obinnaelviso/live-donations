@@ -2,7 +2,7 @@
 {{-- Header --}}
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-<img class="img-fluid"  src="/img/logo-w-caption.jpg" alt="Life Saving Foundation" style=" height: 75px">
+<img class="img-fluid"  src="https://lifesavingfoundation.life/img/logo-w-caption.jpg" alt="Life Saving Foundation" style=" height: 75px">
 @endcomponent
 @endslot
 
