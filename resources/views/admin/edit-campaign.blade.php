@@ -59,7 +59,8 @@
     var config = {};
     config.extraPlugins = 'confighelper'
     config.placeholder = 'Description';
-    config.autoParagraph = false;
+    config.enterMode = CKEDITOR.ENTER_BR;
+    config.shiftEnterMode = CKEDITOR.ENTER_P;
 
     CKEDITOR.replace( 'description', config);
 

@@ -26,7 +26,7 @@ a:hover {
 .fixed{
 	position: fixed;
 	top: 0;
-	 width:87%;
+	 width:86%;
     margin: 0 auto;
 	z-index: 1;
 	background:#fff;
@@ -246,8 +246,9 @@ a:hover {
 /*--nav strip start here--*/
 .header-main {
     background:#fff;
-    padding: 1em 2em;
+    padding: 1em 0.5em;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    border-right: green solid 12px;
 }
 .header-right {
     float: right;
@@ -765,8 +766,9 @@ ul.dropdown-menu {
 }
 .user-name{
 	 float:left;
-	 margin-top:7px;
-	 margin-left:11px;
+	 margin-top:25px;
+     margin-left:11px;
+     font-size: large;
 	 height:35px;
 }
 .profile_details ul li{

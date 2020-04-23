@@ -28,11 +28,7 @@
             <div class="offset-lg-1 col-lg-6">
                 <div class="content_wrapper">
                     <h1 style="font-weight: 700; text-transform: uppercase">Life Saving Foundation</h1>
-                    <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-                        in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate
-                        behavior is often laughed.</p>
-                    <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-                        in the workplace.</p>
+                    <p>{!! array_key_exists('about', $about) ? $about['about'] : ''!!}</p><br>
                     <a href="{{ route('donate') }}" class="main_btn">Donate Now</a>
                 </div>
             </div>

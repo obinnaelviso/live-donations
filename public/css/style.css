@@ -3269,6 +3269,13 @@ h6 {
     color: #ea2c58;
     font-weight: 700;
 }
+
+.carousel-title {
+    color: #ffffff;
+    font-size: 60px;
+    font-family: "Gloss And Bloom", sans-serif;
+    text-shadow: 0em 0.1em 0.1em black;
+}
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */

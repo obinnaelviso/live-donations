@@ -3,42 +3,20 @@
 @section('content')
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="/img/image1.jpg" alt="First slide">
+        @php $i = 0; @endphp
+    @foreach($slideshow as $slide)
+        @php $i++ @endphp
+      <div class="carousel-item @if($i == 1) active @endif">
+        <img class="d-block w-100" src="/storage/{{ $slide->image }}" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
-            <div class="offset-lg-2 col-lg-8">
-                <img class="img-fluid" src="img/banner/text-img.png" alt="">
-                <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
-                    for as low as each.</p>
-                <a class="main_btn mr-10" href="{{ route('donate') }}">donate now</a>
-                    <a class="white_bg_btn" href="{{ route('donate') }}">view activity</a>
+            <div class="offset-lg-1 col-lg-10">
+                <h1 class="carousel-title">{{ $slide->title }}</h1>
+                <p>{!! $slide->description !!}</p>
+                <a class="main_btn" href="{{ route('donate') }}">donate now</a>
             </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100 overlay" src="/img/image2.jpg" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-            <div class="offset-lg-2 col-lg-8">
-                <img class="img-fluid" src="img/banner/text-img.png" alt="">
-                <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
-                    for as low as each.</p>
-                <a class="main_btn mr-10" href="#">donate now</a>
-                    <a class="white_bg_btn" href="#">view activity</a>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="/img/image3.jpg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <div class="offset-lg-2 col-lg-8">
-                <img class="img-fluid" src="img/banner/text-img.png" alt="">
-                <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
-                    for as low as each.</p>
-                <a class="main_btn mr-10" href="#">donate now</a>
-                    <a class="white_bg_btn" href="#">view activity</a>
-            </div>
-        </div>
-      </div>
+    @endforeach
     </div>
 </div>
 
@@ -85,10 +63,9 @@
     <div class="container">
         <div class="row justify-content-center section-title-wrap">
             <div class="col-lg-12">
-                <h1>Our Major Causes</h1>
+                <h1>{{ array_key_exists('title_1', $homepage) ? $homepage['title_1'] : '' }}</h1>
                 <p>
-                    The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence the natural
-                    chain of events.
+                    {!! array_key_exists('description_1', $homepage) ? $homepage['description_1'] : '' !!}
                 </p>
             </div>
         </div>
@@ -132,21 +109,11 @@
 <section class="clients_logo_area section_gap">
     <div class="container">
         <div class="clients_slider owl-carousel">
-            <div class="item">
-                <img src="img/clients-logo/c-logo-1.png" alt="">
-            </div>
-            <div class="item">
-                <img src="img/clients-logo/c-logo-2.png" alt="">
-            </div>
-            <div class="item">
-                <img src="img/clients-logo/c-logo-3.png" alt="">
-            </div>
-            <div class="item">
-                <img src="img/clients-logo/c-logo-4.png" alt="">
-            </div>
-            <div class="item">
-                <img src="img/clients-logo/c-logo-5.png" alt="">
-            </div>
+            @foreach($partners as $partner)
+                <div class="item">
+                    <img src="/storage/{{ $partner->image }}" style="height: 120px" class="img-fluid" alt="{{ $partner->title }}" title="{{ $partner->title }}">
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -157,10 +124,9 @@
     <div class="container">
         <div class="row justify-content-center section-title-wrap">
             <div class="col-lg-12">
-                <h1>Support a campaign or fundraiser</h1>
+                <h1>{{ array_key_exists('title_2', $homepage) ? $homepage['title_2'] : '' }}</h1>
                 <p>
-                    The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence the natural
-                    chain of events.
+                    {!! array_key_exists('description_2', $homepage) ? $homepage['description_2'] : '' !!}
                 </p>
             </div>
         </div>
@@ -197,9 +163,10 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12">
-                <h1>Experience How your Donation Can Reach</h1>
-                <p>he French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence, and upturning
-                    of the natural chain of events that resounded.</p>
+                <h1>{{ array_key_exists('title_3', $homepage) ? $homepage['title_3'] : '' }}</h1>
+                <p>
+                    {!! array_key_exists('description_3', $homepage) ? $homepage['description_3'] : '' !!}
+                </p>
                 <a href="{{ route('donate') }}" class="main_btn2 mr-10">make donation now</a>
                 {{-- <a href="#" class="main_btn2">Create Fundraising today</a> --}}
             </div>

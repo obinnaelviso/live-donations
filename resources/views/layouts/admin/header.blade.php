@@ -1,8 +1,8 @@
 <div class="header-main fixed">
     <div class="header-left">
             <div class="logo-name">
-                     <a href="index.html"> <h1 style="font-size: 18px">Life Saving Foundation</h1>
-                    <!--<img id="logo" src="" alt="Logo"/>-->
+                     <a href="{{ route('home') }}">
+                    <img id="logo" src="/img/logo.png" alt="Logo"/>
                   </a>
             </div>
          </div>

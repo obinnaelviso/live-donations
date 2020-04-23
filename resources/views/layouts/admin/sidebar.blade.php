@@ -14,8 +14,11 @@
       <li id="menu-comunicacao" ><a href="{{ route('donations.index') }}"><i class="fa fa-book nav_icon"></i><span>Donations</span></a></li>
        <li><a href="#"><i class="fa fa-cogs"></i><span>Settings</span><span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="menu-academico-sub" >
-              <li id="menu-academico-avaliacoes" ><a href="#">Homepage</a></li>
-              <li id="menu-academico-boletim" ><a href="#">Payment Gateway</a></li>
+              <li id="menu-academico-avaliacoes" ><a href="{{ route('partners.index') }}">Partners</a></li>
+              <li id="menu-academico-avaliacoes" ><a href="{{ route('slideshow.index') }}">Slideshow</a></li>
+              <li id="menu-academico-avaliacoes" ><a href="{{ route('homepage') }}">Homepage</a></li>
+              <li id="menu-academico-avaliacoes" ><a href="{{ route('settings.about') }}">About/Contact Page</a></li>
+              {{-- <li id="menu-academico-boletim" ><a href="#">Payment Gateway</a></li> --}}
            </ul>
        </li>
     </ul>
