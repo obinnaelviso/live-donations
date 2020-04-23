@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
+use App\Donation;
+use App\Partner;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,6 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $total_campaigns = Campaign::all()->count();
+        $open_campaigns = Campaign::where('status', 'open')->count();
+        $closed_campaigns = Campaign::where('status', 'closed')->count();
+        $total_partners = Partner::all()->count();
+        $donations = Donation::orderBy('amount', 'desc')->get();
+        return view('admin.home', compact('total_campaigns', 'open_campaigns', 'closed_campaigns', 'total_partners', 'donations'));
     }
 }
