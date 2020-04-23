@@ -7,10 +7,6 @@
 <div class="blank">
     <h2>Partners</h2>
     <div class="blankpage-main">
-        <div id="error">
-            @include('layouts.admin.errors')
-            @include('layouts.admin.alerts')
-        </div>
         <div class="row" id="form">
             <div class="col-md-12 compose-right">
                 <div class="inbox-details-default">
@@ -18,6 +14,8 @@
                         Add Partner
                     </div>
                     <div class="inbox-details-body">
+                        @include('layouts.admin.errors')
+                        @include('layouts.admin.alerts')
                         <form class="com-mail" action="{{ route('partners.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-4"><input type="text" name="name" maxlength="200" placeholder="Name" value="{{ old('name') }}" required></div>

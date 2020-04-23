@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <div class="btn btn-default btn-file">
                                         <i class="fa fa-paperclip"> </i> <span id="file_name">Select an image</span>
-                                        <input type="file" id="image" name="img" required>
+                                        <input type="file" id="image" name="img">
                                     </div>
                                 </div>
                             </div>

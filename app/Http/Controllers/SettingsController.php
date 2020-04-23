@@ -33,6 +33,7 @@ class SettingsController extends Controller
         if($request->hasFile('img')) {
             $file_url = $request->file('img')->store('public/header-image');
             $file_name = str_replace("public/", "", $file_url);
+            $homepage['header_image'] = $file_name;
         }
         $homepage['title_1'] = $request->title_1;
         $homepage['title_2'] = $request->title_2;
@@ -40,7 +41,6 @@ class SettingsController extends Controller
         $homepage['description_1'] = $request->description_1;
         $homepage['description_2'] = $request->description_2;
         $homepage['description_3'] = $request->description_3;
-        $homepage['header_image'] = $file_name;
         $homepage_settings->value = json_encode($homepage);
         $homepage_settings->save();
         return back()->with('success', 'Homepage updated successfully!');

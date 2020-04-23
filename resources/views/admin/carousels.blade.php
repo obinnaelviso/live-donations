@@ -19,7 +19,7 @@
                         <form class="com-mail" action="{{ route('slideshow.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="text" name="title" maxlength="200" placeholder="Title" value="{{ old('title') }}" required>
-                            <textarea id="description" name="description" placeholder="Description (optional)" maxlength="200"></textarea>
+                            <textarea id="description" name="description" placeholder="Description (optional)" maxlength="300">{{ old('description') }}</textarea>
                             <div class="form-group">
                                 <div class="btn btn-default btn-file">
                                     <i class="fa fa-paperclip"> </i> <span id="file_name">Choose an image</span>
