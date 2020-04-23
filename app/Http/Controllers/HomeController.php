@@ -12,6 +12,7 @@ use App\ContactForm;
 use App\Mail\ContactUs;
 use App\Mail\ContactUsCallBack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -45,7 +46,12 @@ class HomeController extends Controller
             $about = json_decode($about_settings->value, true);
         else
             $about = [];
-        return view('about', compact('about'));
+        $homepage_settings = Setting::where('key', 'home')->first();
+        if($homepage_settings)
+            $homepage = json_decode($homepage_settings->value, true);
+        else
+            $homepage = [];
+        return view('about', compact('about', 'homepage'));
     }
 
     public function contact() {
@@ -54,7 +60,12 @@ class HomeController extends Controller
             $about = json_decode($about_settings->value, true);
         else
             $about = [];
-        return view('contact', compact('about'));
+        $homepage_settings = Setting::where('key', 'home')->first();
+        if($homepage_settings)
+            $homepage = json_decode($homepage_settings->value, true);
+        else
+            $homepage = [];
+        return view('contact', compact('about', 'homepage'));
     }
 
     public function donate() {
@@ -64,7 +75,12 @@ class HomeController extends Controller
             $about = json_decode($about_settings->value, true);
         else
             $about = [];
-        return view('donate', compact('campaigns', 'about'));
+        $homepage_settings = Setting::where('key', 'home')->first();
+        if($homepage_settings)
+            $homepage = json_decode($homepage_settings->value, true);
+        else
+            $homepage = [];
+        return view('donate', compact('campaigns', 'about', 'homepage'));
     }
 
     public function makeDonation(Campaign $campaign) {
@@ -73,7 +89,13 @@ class HomeController extends Controller
             $about = json_decode($about_settings->value, true);
         else
             $about = [];
-        return view('make-donation', compact('campaign', 'about'));
+
+        $homepage_settings = Setting::where('key', 'home')->first();
+        if($homepage_settings)
+            $homepage = json_decode($homepage_settings->value, true);
+        else
+            $homepage = [];
+        return view('make-donation', compact('campaign', 'about', 'homepage'));
     }
 
     public function processDonation(Campaign $campaign, Request $request)
@@ -85,15 +107,13 @@ class HomeController extends Controller
 
     public function send_mail(Request $request) {
         $this->validate_contact($request->all())->validate();
+        Mail::to($request->email)->send(new ContactUs($request));
+        Mail::to(config('mail.from.address'))->send(new ContactUsCallBack($request));
         $mailing_list = MailingList::where('email', $request->email)->first();
         if(!$mailing_list) {
-            // Mail::to($request->email)->send(new ContactUs($request));
-            // Mail::to('info@royalimperialbank.com')->send(new ContactUsCallBack($request));
             $new_mailing_list = MailingList::create($request->all());
             $new_mailing_list->forms()->create($request->all());
         } else {
-            // Mail::to($request->email)->send(new ContactUs($request));
-            // Mail::to(config('mail.from.address'))->send(new ContactUsCallBack($request));
             $mailing_list->forms()->create($request->all());
         }
         return back()->with('success', "We've received your message, and we'll kindly get back to you shortly");

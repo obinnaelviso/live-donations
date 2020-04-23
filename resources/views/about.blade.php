@@ -4,7 +4,7 @@
 @section('content')
 <!--================ Banner Area =================-->
 <section class="banner_area">
-    <div class="banner_inner d-flex align-items-center">
+    <div class="banner_inner d-flex align-items-center" style="background-image: url(/storage/{{ array_key_exists('header_image', $homepage) ? $homepage['header_image'] : 'default.jpg' }})">
         <div class="overlay"></div>
         <div class="container">
             <div class="banner_content text-center">

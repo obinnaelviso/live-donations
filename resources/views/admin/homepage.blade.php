@@ -16,7 +16,7 @@
                     <div class="inbox-details-body">
                         @include('layouts.admin.errors')
                         @include('layouts.admin.alerts')
-                        <form class="com-mail" action="{{ route('homepage.set', $homepage_settings->id) }}" method="POST">
+                        <form class="com-mail" action="{{ route('homepage.set', $homepage_settings->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf @method('PUT')
                             <div class="col-md-6">
                                 <label for="title_1">Title 1</label>
@@ -43,6 +43,18 @@
                             <div class="col-md-6">
                                 <label for="description_3">Description 3</label>
                                 <textarea id="description_3" name="description_3" maxlength="200">{{ array_key_exists('description_3', $homepage) ? $homepage['description_3'] : ''}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="img">Page headers image</label>
+                                <div class="form-group">
+                                    <div class="btn btn-default btn-file">
+                                        <i class="fa fa-paperclip"> </i> <span id="file_name">Select an image</span>
+                                        <input type="file" id="image" name="img" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img-responsive" style="width: 300px" src="/storage/{{ array_key_exists('header_image', $homepage) ? $homepage['header_image'] : 'default.jpg'}}">
                             </div><br><br>
 
                                 <input type="submit" value="Save Changes">
@@ -56,7 +68,13 @@
 
 <script src="https://cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script>
 <script>
-    CKEDITOR.plugins.addExternal( 'confighelper', '/admin/plugins/confighelper/', 'plugin.js' );
+    $('#image').on("change", function(){
+	  // Name of file and placeholder
+	  var file = this.files[0].name;
+	  if($(this).val()){
+	    $('#file_name').html("<strong>"+file+"</strong>");
+	  }
+    });OR.plugins.addExternal( 'confighelper', '/admin/plugins/confighelper/', 'plugin.js' );
 
     var config = {};
     config.extraPlugins = 'confighelper'

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Carousel;
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
@@ -26,12 +27,20 @@ class SettingsController extends Controller
 
     public function homepage_set(Setting $homepage_settings, Request $request) {
         $homepage = json_decode($homepage_settings->value, true);
+        if(array_key_exists('header_image', $homepage)) {
+            Storage::delete('public/'.$homepage['header_image']);
+        }
+        if($request->hasFile('img')) {
+            $file_url = $request->file('img')->store('public/header-image');
+            $file_name = str_replace("public/", "", $file_url);
+        }
         $homepage['title_1'] = $request->title_1;
         $homepage['title_2'] = $request->title_2;
         $homepage['title_3'] = $request->title_3;
         $homepage['description_1'] = $request->description_1;
         $homepage['description_2'] = $request->description_2;
         $homepage['description_3'] = $request->description_3;
+        $homepage['header_image'] = $file_name;
         $homepage_settings->value = json_encode($homepage);
         $homepage_settings->save();
         return back()->with('success', 'Homepage updated successfully!');
