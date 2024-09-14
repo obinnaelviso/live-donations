@@ -43,7 +43,7 @@
                 <img src="img/icons/home3.png" alt="">
                 <h4>Highest Donation</h4>
                 <div class="bigValues text-center">
-                    $<span id="highest-donations">{{ $donations->first()->amount }}</span>
+                    $<span id="highest-donations">{{ $donations->first()->amount ?? ''}}</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 single_donation_box">
