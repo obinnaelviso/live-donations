@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Campaign;
-use App\Donation;
+use App\Models\Campaign;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,7 +53,7 @@ class DonationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Donation  $donation
+     * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
     public function show(Donation $donation)
@@ -64,7 +64,7 @@ class DonationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Donation  $donation
+     * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
     public function edit(Donation $donation)
@@ -76,7 +76,7 @@ class DonationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Donation  $donation
+     * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Donation $donation)
@@ -87,7 +87,7 @@ class DonationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Donation  $donation
+     * @param  \App\Models\Donation  $donation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Donation $donation)

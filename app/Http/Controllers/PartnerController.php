@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Partner;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;

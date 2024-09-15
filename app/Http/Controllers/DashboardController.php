@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Campaign;
-use App\Donation;
-use App\Partner;
-use Illuminate\Http\Request;
+use App\Models\Campaign;
+use App\Models\Donation;
+use App\Models\Partner;
 
 class DashboardController extends Controller
 {

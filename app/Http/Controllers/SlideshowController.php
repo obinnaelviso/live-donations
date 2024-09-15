@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Carousel;
+use App\Models\Carousel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -50,7 +50,7 @@ class SlideshowController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Carousel  $carousel
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
     public function show(Carousel $carousel)
@@ -61,7 +61,7 @@ class SlideshowController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Carousel  $carousel
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
     public function edit(Carousel $carousel)
@@ -73,7 +73,7 @@ class SlideshowController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Carousel  $carousel
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Carousel $carousel)
@@ -84,7 +84,7 @@ class SlideshowController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Carousel  $carousel
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
     public function destroy(Carousel $slideshow)

@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Campaign;
-use App\Carousel;
-use App\Donation;
-use App\Partner;
-use App\Setting;
-use App\MailingList;
-use App\ContactForm;
 use App\Mail\ContactUs;
 use App\Mail\ContactUsCallBack;
+use App\Models\Campaign;
+use App\Models\Carousel;
+use App\Models\Donation;
+use App\Models\MailingList;
+use App\Models\Partner;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;

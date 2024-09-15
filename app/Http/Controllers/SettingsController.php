@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Carousel;
-use App\Setting;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
