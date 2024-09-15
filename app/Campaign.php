@@ -10,8 +10,6 @@ class Campaign extends Model
         'featured_image', 'title', 'description', 'target', 'is_featured', 'status', 'expire_at'
     ];
 
-    protected $dates = ['expire_at'];
-
     protected $casts = [
         'expire_at' => 'datetime',
     ];
